@@ -18,45 +18,16 @@ die; // var_dump — Выводит информацию о переменной
 $currentOperator = $_GET('operator') ?? null;
 $num1 = (int)$_GET('num1') ?? 0;
 $num2 = (int)$_GET('num2') ?? 0;
-$result = 0;
 
 // условия
-
-switch ($currentOperator) {
-    case 'plus':
-        $result = $num1 + $num2;
-        break;
-
-    case 'minus':
-        if ($num1 < $num2) {
-            echo $messageError;
-
-            die;
-        } else {
-            $result = $num1 - $num2;
-        }
-        break;
-
-    case 'division':
-        if ($num2 === 0) {
-            echo $messageError;
-
-            die;
-        } else {
-            $result = $num1 / $num2;
-        }
-        break;
-
-    case 'multiple':
-        $result = $num1 * $num2;
-        break;
-        
-    default:
-        echo $messageError;
-
-        die;
+// match в отличие от switch использует строгое равенство ===
+$result = match ($currentOperator) {
+    'plus' => $num1 + $num2,
+    'minus' => $num1 - $num2,
+    'division' => $num1 / $num2,
+    'multiple' => $num1 * $num2,
+    default => 0
 };
-
 
 // echo - Выводит одно или несколько выражений без дополнительных символов новой строки или пробелов.
 // . - оператор конкатенации
