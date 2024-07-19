@@ -24,3 +24,4 @@
  - if
  - elseif
  - else
+ - switch

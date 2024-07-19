@@ -21,31 +21,42 @@ $num2 = (int)$_GET('num2') ?? 0;
 $result = 0;
 
 // условия
-if ($currentOperator === 'plus') {
-    $result = $num1 + $num2;
-} elseif ($currentOperator === 'minus') {
-    if ($num1 < $num2) {
-        echo $messageError;
+
+switch ($currentOperator) {
+    case 'plus':
+        $result = $num1 + $num2;
+        break;
+
+    case 'minus':
+        if ($num1 < $num2) {
+            echo $messageError;
+
+            die;
+        } else {
+            $result = $num1 - $num2;
+        }
+        break;
+
+    case 'division':
+        if ($num2 === 0) {
+            echo $messageError;
+
+            die;
+        } else {
+            $result = $num1 / $num2;
+        }
+        break;
+
+    case 'multiple':
+        $result = $num1 * $num2;
+        break;
         
-        die;
-    } else {
-        $result = $num1 - $num2;
-    }
-} elseif ($currentOperator === 'division') {
-    if ($num2 === 0) {
+    default:
         echo $messageError;
 
         die;
-    } else {
-        $result = $num1 / $num2;
-    }
-} elseif ($currentOperator === 'multiple') {
-    $result = $num1 * $num2;
-} else {
-    echo $messageError;
-
-    die;
 };
+
 
 // echo - Выводит одно или несколько выражений без дополнительных символов новой строки или пробелов.
 // . - оператор конкатенации
