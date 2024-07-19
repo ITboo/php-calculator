@@ -23,27 +23,39 @@ $result = 0;
 // условия
 if ($currentOperator === 'plus') {
     $result = $num1 + $num2;
-};
-if ($currentOperator === 'minus') {
+} elseif ($currentOperator === 'minus') {
     if ($num1 < $num2) {
         echo $messageError;
-        return; // возврат значения
+        
+        die;
     } else {
         $result = $num1 - $num2;
     }
-};
-if ($currentOperator === 'division') {
+} elseif ($currentOperator === 'division') {
     if ($num2 === 0) {
         echo $messageError;
-        return; // возврат значения     
+
+        die;
     } else {
         $result = $num1 / $num2;
     }
-};
-if ($currentOperator === 'multiple') {
+} elseif ($currentOperator === 'multiple') {
     $result = $num1 * $num2;
+} else {
+    echo $messageError;
+
+    die;
 };
 
 // echo - Выводит одно или несколько выражений без дополнительных символов новой строки или пробелов.
 // . - оператор конкатенации
 echo 'Результат операции:' . $result;
+
+
+//localhost = 127.0.0.1
+// netstat -ntulp | grep 8080 (netstat -утилита, позволяет посмотреть какая программа занимает определённый порт, grep для фильтрации)
+
+// http - :80
+// https - :443
+
+// перед тем как запрос прилетит в скрипт php под капотом проводит ряд операций. Заполняет массив $_GET, $_POST, $_COOKIE, $_FILES (если были загружены файлы), $_SERVER (окружение,в  котором был запущен скрипт)
