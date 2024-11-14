@@ -14,14 +14,27 @@
  - null
  - void
  ...
- 7. Variables, constants
- 8. Operators
+ 7. Type conversion
+ 8. Variables, constants
+ 9. Operators
  - Arithmetic Operator
  - Assignment Operator
  - Comparison Operator
  - String Operator
- 9. Control Structures
+ 10. Control Structures
+- continue
+ - break
+ - require
+ - include
+ 
  - if
  - elseif
  - else
  - switch
+ - match
+
+ - while
+ - do-while
+ - for
+ - foreach
+

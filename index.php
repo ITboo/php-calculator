@@ -41,3 +41,12 @@ echo 'Результат операции:' . $result;
 // https - :443
 
 // перед тем как запрос прилетит в скрипт php под капотом проводит ряд операций. Заполняет массив $_GET, $_POST, $_COOKIE, $_FILES (если были загружены файлы), $_SERVER (окружение,в  котором был запущен скрипт)
+
+// include __DIR__ . '/filename.php' __DIR__ константа текущей директории include при ошибке не блочит выполнение скрипта, а просто выдаёт предупреждение (в отличие от require)
+
+$path_url = $_SERVER['PATH_INFO'] ?? null;
+switch ($path_url){
+case '/calculator':
+    require './calculator.php';
+    break;
+}
